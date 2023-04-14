@@ -1,5 +1,5 @@
 //contains the code for the collections of the resident collections
-import Resident from "../models/Resident";
+import Resident from "../models/Resident.js";
 
 export const getResidents = async (req,res) => {
     try {
@@ -22,16 +22,16 @@ export const getResident = async (req,res) => {
     }
 }
 
-export const getCertainResident = async (req,res) => {
-    try {
-        const {firstName} = req.params;
-        const resident = await Resident.findOne({$name: firstName});
-        res.json(resident);
-    } catch (error) {
-        console.log(error.message)
-        res.status(500).json({error: error.message});
-    }
-}
+// export const getCertainResident = async (req,res) => {
+//     try {
+//         const {firstName} = req.params;
+//         const resident = await Resident.findOne({$name: firstName});
+//         res.json(resident);
+//     } catch (error) {
+//         console.log(error.message)
+//         res.status(500).json({error: error.message});
+//     }
+// }
 
 export const createResident = async (req,res) => {
     try {
@@ -67,18 +67,18 @@ export const deleteResident = async (req,res) => {
     }
 }
 
-export const deleteCertainResident = async (req,res) => {
-    try {
-        const {firstName} = req.params;
-        const deleted = await Resident.findOneAndDelete({$name: firstName});
-        if(deleted){
-            return res.status(200).send("Resident Deleted!");
-        }
-        else{
-            throw new Error("Resident not found");
-        }
-    } catch (error) {
-        console.log(error.message)
-        res.status(500).json({error: error.message});
-    }
-}
+// export const deleteCertainResident = async (req,res) => {
+//     try {
+//         const {firstName} = req.params;
+//         const deleted = await Resident.findOneAndDelete({$name: firstName});
+//         if(deleted){
+//             return res.status(200).send("Resident Deleted!");
+//         }
+//         else{
+//             throw new Error("Resident not found");
+//         }
+//     } catch (error) {
+//         console.log(error.message)
+//         res.status(500).json({error: error.message});
+//     }
+// }
