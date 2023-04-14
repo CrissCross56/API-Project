@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 let Resident = new Schema({
-    id: Number,
+    residentNum: Number,
     name: String,
     alive: Boolean,
     species: String
